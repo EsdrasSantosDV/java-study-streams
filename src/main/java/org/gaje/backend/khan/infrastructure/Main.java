@@ -1,6 +1,7 @@
 package org.gaje.backend.khan.infrastructure;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -9,7 +10,7 @@ public class Main {
 
         //EXERCISE 1- Find the sum of all even numbers in a list of integers.
         // Encontre a soma de todos os números pares em uma lista de inteiros.
-        List<Integer> listNumbers= Arrays.asList(1,2,3,4,5,6,7,8,9,10);
+        List<Integer> listNumbers= Arrays.asList(1,2,3,4,5,6,787,7,8,9,10);
 
         final var sum=listNumbers.stream().filter(n->n%2==0)
                 .reduce(0,(a,b)->a+b);
@@ -34,10 +35,19 @@ public class Main {
         //TEM DESSE JEITO
         //OU DESSE COLLECT E PRA TRANSFORMAR EM OUTRO TIPO
         final var squareList=listNumbers.stream().map(n->n*n).collect(Collectors.toList());
-        System.out.println(squareList)
-        ;
-
+        System.out.println(squareList);
         System.out.println(square.toString());
+
+        //Find the maximum element in a list of integers.
+        //Encontre o elemento máximo em uma lista de inteiros.
+        //Encontre o elemento minimo em uma lista de inteiros.
+        final var maxNumberInList=listNumbers.stream().mapToInt(Integer::intValue).max();
+        final var minNumberList=listNumbers.stream().mapToInt(Integer::intValue).min();
+        System.out.println(maxNumberInList);
+        System.out.println(minNumberList);
+
+
+
 
     }
 
