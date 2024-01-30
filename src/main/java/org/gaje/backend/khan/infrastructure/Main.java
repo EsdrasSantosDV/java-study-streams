@@ -54,9 +54,23 @@ public class Main {
         Convert each string to uppercase and then sort them in alphabetical order.
         Converta cada string em maiúsculas e classifique-as em ordem alfabética.
          */
-        
+
         final var stringConvertAndSort=listStrings.stream().map(String::toUpperCase).sorted().collect(Collectors.toList());
         System.out.println(stringConvertAndSort);
+
+        // Find the average of all the numbers in a list of doubles using Streams.
+        //Encontre a média de todos os números em uma lista de duplas usando Streams.
+        List<Double> listDoubles=Arrays.asList(10.0,12.4,124.25,125.6,12.12);
+        final var averageInList=listDoubles.stream().mapToDouble(Double::doubleValue).average().getAsDouble();
+        System.out.println(averageInList);
+
+        // Create a new list that contains only unique words (remove duplicates).
+        /*
+        Crie uma nova lista que contenha apenas palavras exclusivas (remova as duplicatas).
+         */
+
+
+        List<String> listStringsDuplicate=Arrays.asList("esd","asaddasdsa","sdaasddas","esd");
 
 
     }
