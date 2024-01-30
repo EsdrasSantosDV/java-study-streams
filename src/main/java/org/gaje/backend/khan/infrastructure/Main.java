@@ -1,8 +1,6 @@
 package org.gaje.backend.khan.infrastructure;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -79,10 +77,53 @@ public class Main {
         Verifique se todos os elementos de uma lista satisfazem uma determinada condição usando fluxos.
          */
         final var condition=listNumbers.stream().allMatch(n->n%2==0);
-        //temos o nonMatch tbm 
+        //temos o nonMatch tbm
         System.out.println(condition);
+        /*
+        . Check if a list contains a specific element using streams.
+        Verifique se uma lista contém um elemento específico usando streams.
+         */
+        final var containsSeven=listNumbers.stream().anyMatch(n->n==12);
+        System.out.println(containsSeven);
+
+        /*
+        . Find the longest string in a list using streams.
+         Encontre a string mais longa em uma lista usando streams.
+         */
+        final var stringLongest=listStrings.stream().mapToInt(String::length).max();
+
+        /*
+        Remove null values from a list using streams.
+         */
+        final var removeNullValues=Arrays.asList("easds",null,"edsd").stream().filter(Objects::nonNull).collect(Collectors.toList());
+        System.out.println(removeNullValues);
+
+        List<Employee> employees=new ArrayList<>();
+        employees.add(new Employee("DIEGO","DEV",8000));
+        employees.add(new Employee("CHICO","fgas",9000));
+        employees.add(new Employee("PEDRO","DEV",9000));
+        final var highestSalaryPerDebt=employees.stream().collect(
+                Collectors.groupingBy(Employee::getDepartment,
+                        Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary)))
+        );
+        System.out.println(highestSalaryPerDebt.get("DEV").toString());
 
 
+        /*
+        Find Second Smallest Element in a List
+           Encontre o segundo menor elemento em uma lista
+         */
+        final var secondValue=listNumbers.stream().distinct().sorted().skip(1).findFirst();
+        System.out.println(secondValue);
+
+        /*
+        Find Intersection of Two Lists
+        Encontre a interseção de duas listas
+         */
+
+        List<Integer> secondList=Arrays.asList(1,4,5,6,12,194);
+        final var intersection=listNumbers.stream().distinct().filter(secondList::contains).collect(Collectors.toList());
+        System.out.println(intersection);
 
 
     }
@@ -92,4 +133,38 @@ public class Main {
         return listInput.stream().map(n->n*n).toList();
     }
 
+}
+
+class Employee {
+    private String name;
+    private String department;
+    private double salary;
+
+    public Employee(final String name,final String department, final double salary)
+    {
+        this.name=name;
+        this.department=department;
+        this.salary=salary;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", department='" + department + '\'' +
+                ", salary=" + salary +
+                '}';
+    }
 }
