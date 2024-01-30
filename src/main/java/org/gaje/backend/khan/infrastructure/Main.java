@@ -2,6 +2,7 @@ package org.gaje.backend.khan.infrastructure;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,7 +28,22 @@ public class Main {
 
         System.out.println(countStringHaveGreatherThanFive);
 
+        //. Implement a function that takes a list of
+        // integers as input and returns a new list containing the square of each element.
+        List<Integer> square=squareList(listNumbers);
+        //TEM DESSE JEITO
+        //OU DESSE COLLECT E PRA TRANSFORMAR EM OUTRO TIPO
+        final var squareList=listNumbers.stream().map(n->n*n).collect(Collectors.toList());
+        System.out.println(squareList)
+        ;
 
+        System.out.println(square.toString());
 
     }
+
+    static List<Integer> squareList(List<Integer> listInput)
+    {
+        return listInput.stream().map(n->n*n).toList();
+    }
+
 }
