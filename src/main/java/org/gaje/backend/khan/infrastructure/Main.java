@@ -46,7 +46,10 @@ public class Main {
         System.out.println(maxNumberInList);
         System.out.println(minNumberList);
 
-
+        //Concatenate all the strings in a list into a single string.
+        //Concatene todas as strings de uma lista em uma única string.
+        final var stringConcat=listStrings.stream().collect(Collectors.joining());
+        System.out.println(stringConcat);
 
 
     }
