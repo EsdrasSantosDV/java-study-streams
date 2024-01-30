@@ -76,7 +76,14 @@ public class Main {
 
         /*
         Check if all elements in a List satisfy a given condition using streams.
+        Verifique se todos os elementos de uma lista satisfazem uma determinada condição usando fluxos.
          */
+        final var condition=listNumbers.stream().allMatch(n->n%2==0);
+        //temos o nonMatch tbm 
+        System.out.println(condition);
+
+
+
 
     }
 
