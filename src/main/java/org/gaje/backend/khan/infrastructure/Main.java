@@ -23,7 +23,7 @@ public class Main {
         //Find and print the count of strings that have length greater than 5.
         //Encontre e imprima a contagem de strings com comprimento maior que 5.
 
-        List<String> listStrings=Arrays.asList("esd","saddasdsa","sdaasddas");
+        List<String> listStrings=Arrays.asList("esd","asaddasdsa","sdaasddas");
 
         final var countStringHaveGreatherThanFive=listStrings.stream().filter(n->n.length()>5).count();
 
@@ -50,6 +50,13 @@ public class Main {
         //Concatene todas as strings de uma lista em uma única string.
         final var stringConcat=listStrings.stream().collect(Collectors.joining());
         System.out.println(stringConcat);
+        /*
+        Convert each string to uppercase and then sort them in alphabetical order.
+        Converta cada string em maiúsculas e classifique-as em ordem alfabética.
+         */
+        
+        final var stringConvertAndSort=listStrings.stream().map(String::toUpperCase).sorted().collect(Collectors.toList());
+        System.out.println(stringConvertAndSort);
 
 
     }
