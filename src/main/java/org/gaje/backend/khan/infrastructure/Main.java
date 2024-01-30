@@ -15,11 +15,17 @@ public class Main {
 
         final var sum2=listNumbers.stream().filter(n->n%2==0).
                 mapToInt(Integer::intValue).sum();
-        
+
         System.out.println("Sum of all even numbers: "+sum2);
 
+        //Find and print the count of strings that have length greater than 5.
+        //Encontre e imprima a contagem de strings com comprimento maior que 5.
 
+        List<String> listStrings=Arrays.asList("esd","saddasdsa","sdaasddas");
 
+        final var countStringHaveGreatherThanFive=listStrings.stream().filter(n->n.length()>5).count();
+
+        System.out.println(countStringHaveGreatherThanFive);
 
 
 
