@@ -71,7 +71,12 @@ public class Main {
 
 
         List<String> listStringsDuplicate=Arrays.asList("esd","asaddasdsa","sdaasddas","esd");
+        final var duplicateRemoved=listStringsDuplicate.stream().distinct().collect(Collectors.toList());
+        System.out.println(duplicateRemoved);
 
+        /*
+        Check if all elements in a List satisfy a given condition using streams.
+         */
 
     }
 
